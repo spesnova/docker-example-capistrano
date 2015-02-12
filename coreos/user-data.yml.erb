@@ -29,6 +29,13 @@ coreos:
 
         [Install]
         WantedBy=sockets.target
+users:
+  - name: cap
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBEQq/D8lfTVIeM2cSZeUUe/xt9fqHpQS2rgnp2MLVXygxok85F88+/rhTAtuaNYvhrfV0QEljo4py/cbON/ryfniHGApEumT+eVZeJWwgKaQ2dSfqypXjouJ5JPIRHQLqbouGPw+ohFERetMLGu290qN00XzUrVnW4ERFTrMVkikyFN668zViuGc+KaOO9rXFygIEPule2icA2G+u8f9a/ByY6nxi92XQHDdXVMN1OK0u7QtJ+/QrFZx3TgdnHnVhrvCQqANlOVJ7xaqWyq4AwFNPcGfBSUMPcHh7zwyKXT/ifBFuCStVavnCplyqxSbgfqQbY0SRZCKWdRXi/58N seigo@rb9.local
+    groups:
+      - sudo
+      - docker
 write_files:
   - path: /etc/ssh/sshd_config
     permissions: 0600

@@ -12,16 +12,16 @@ task :ps do
     }
   end
 
-  outputs = [["MACHINE", "ID", "NAME", "STATUS", "COMMAND"]]
+  rows = [["MACHINE", "ID", "NAME", "STATUS", "COMMAND"]]
 
   machines.each do |m|
     JSON.parse(m[:ps_json]).each do |c|
-      outputs << [m[:ip], c["Id"].slice!(0..6), c["Names"].first.sub(/\//,''), c["Status"], c["Command"]]
+      rows << [m[:ip], c["Id"].slice!(0..6), c["Names"].first.sub(/\//,''), c["Status"], c["Command"]]
     end
   end
 
-  outputs.each do |o|
-    puts o[0].ljust(15) + o[1].ljust(10) + o[2].ljust(30) + o[3].ljust(18) + o[4].ljust(15)
+  rows.each do |r|
+    puts r[0].ljust(15) + r[1].ljust(10) + r[2].ljust(30) + r[3].ljust(18) + r[4].ljust(15)
   end
 end
 

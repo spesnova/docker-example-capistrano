@@ -13,6 +13,6 @@ docker run \
   --rm \
   -it \
   --name capistrano \
-  -v /home/core/share/ssh:/capistrano/.ssh \
+  -v /home/core/share/capistrano:/capistrano \
   quay.io/spesnova/capistrano \
   $@

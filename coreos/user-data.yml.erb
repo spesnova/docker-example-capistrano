@@ -54,3 +54,13 @@ write_files:
       restrict default nomodify nopeer noquery limited kod
       restrict 127.0.0.1
       restrict [::1]
+  - path: /opt/bin/cap
+    permissions: 0755
+    owner: core:core
+    content: |
+      #!/bin/bash
+      #
+      # Usage: script/cap -T
+      #
+
+      /home/core/share/script/run cap $@

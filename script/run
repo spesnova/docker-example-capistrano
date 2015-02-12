@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Usage:
+#   script/run bash
+#   script/run cap -T
+#
+
+set -e
+
+docker kill capistrano > /dev/null 2>&1 || true
+docker rm   capistrano > /dev/null 2>&1 || true
+docker run \
+  --rm \
+  -it \
+  --name capistrano \
+  -v /home/core/share/ssh:/capistrano/.ssh \
+  quay.io/spesnova/capistrano \
+  $@

@@ -1,4 +1,4 @@
 desc "List apps (stage)"
 task :apps do
-  puts stages
+  puts stages.reject!{|s| s == "default"}
 end

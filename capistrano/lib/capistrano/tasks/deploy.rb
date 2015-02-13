@@ -14,7 +14,19 @@ def next_color
   to
 end
 
+desc "Deploy an app"
+task :deploy do
+  invoke "pull"
+  invoke "unit:reload"
+  invoke "ps:restart"
+end
+
 namespace :deploy do
+  desc "Show current active container color for rails"
+  task :check do
+    puts "Current Color: #{current_color}"
+  end
+
   desc "Switch to blue/green containers"
   task :switch, :to do |t, args|
     to = ""

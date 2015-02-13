@@ -33,9 +33,6 @@ end
 namespace :ps do
   desc "Start containers for an app"
   task :start do
-    invoke "pull"
-    invoke "unit:reload"
-
     container   = fetch(:container)
     on roles(fetch(:stage)) do
       execute("sudo systemctl enable #{container}.service")
@@ -45,9 +42,6 @@ namespace :ps do
 
   desc "Restart containers for an app"
   task :restart do
-    invoke "pull"
-    invoke "unit:reload"
-
     container = fetch(:container)
     on roles(fetch(:stage)) do
       execute("sudo systemctl restart #{container}.service")

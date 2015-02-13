@@ -36,7 +36,7 @@ namespace :deploy do
     from = "blue"
     from = "green" if to == "blue"
 
-    on roles(:nginx) do
+    on roles(:all) do
       execute("sudo mkdir -pv /etc/nginx/switch || true")
       execute("sudo touch     /etc/nginx/switch/#{to}")
       execute("sudo rm        /etc/nginx/switch/#{from} || true")

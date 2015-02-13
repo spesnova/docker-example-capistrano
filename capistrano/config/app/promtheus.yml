@@ -1,0 +1,11 @@
+name: prometheus
+description: An open-source service monitoring system and time series database
+repo: github.com/prometheus/prometheus
+image: prom/prometheus
+command: -config.file=/prometheus.conf
+ports:
+  - 9090:9090
+volumes:
+  - /home/core/share/capistrano/templates/prometheus.conf:/prometheus.conf
+net: host
+environment:

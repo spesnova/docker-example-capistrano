@@ -1,0 +1,12 @@
+name: container-exporter
+description: Prometheus exporter exposing container metrics
+repo: github.com/docker-infra/container_exporter
+image: prom/container-exporter
+command:
+ports:
+  - 9104:9104
+volumes:
+  - /sys/fs/cgroup:/cgroup
+  - /var/run/docker.sock:/var/run/docker.sock
+net: host
+environment:

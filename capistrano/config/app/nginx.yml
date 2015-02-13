@@ -1,0 +1,12 @@
+name: docker-example-nginx
+description: Example Nginx Proxy
+repo: github.com/spesnova/docker-example-nginx
+image: quay.io/spesnova/docker-example-nginx
+command:
+ports:
+volumes:
+  - /etc/nginx/switch:/etc/nginx/switch:ro
+net: host
+environment:
+  - SERVERNAME=hello.com
+  - HOST=hello.com

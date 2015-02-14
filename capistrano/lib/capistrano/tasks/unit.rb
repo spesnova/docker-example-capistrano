@@ -7,6 +7,8 @@ namespace :unit do
     options     = fetch(:options)
     command     = fetch(:command)
 
+    print "Reloading #{container}... "
+
     template_path = ::File.expand_path("../../../../templates/container.service.erb", __FILE__)
     template      = ::ERB.new(File.new(template_path).read).result(binding)
     tmp_path      = "/tmp/#{container}.service"
@@ -19,6 +21,8 @@ namespace :unit do
       execute("sudo chown root:root #{dest_path}")
       execute("sudo systemctl daemon-reload")
     end
+
+    puts "done"
   end
 
   desc "Cat systemd unit file on each machine for an app"

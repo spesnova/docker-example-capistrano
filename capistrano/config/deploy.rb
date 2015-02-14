@@ -21,7 +21,7 @@ set :log_level, case ENV["LOG_LEVEL"]
                 when "warn"  then :warn
                 when "error" then :error
                 when "fatal" then :fatal
-                else :info
+                else :warn
                 end
 
 #

@@ -34,35 +34,41 @@ namespace :ps do
   desc "Start containers for an app"
   task :start do
     container   = fetch(:container)
+    print "Starting #{container}... "
     on roles(fetch(:stage)) do
       execute("sudo systemctl enable #{container}.service")
       execute("sudo systemctl start #{container}.service")
     end
+    puts "done"
   end
 
   desc "Restart containers for an app"
   task :restart do
     container = fetch(:container)
+    print "Restarting #{container}... "
     on roles(fetch(:stage)) do
       execute("sudo systemctl restart #{container}.service")
     end
+    puts "done"
   end
 
   desc "Stop containers for an app"
   task :stop do
     container = fetch(:container)
-
+    print "Stopping #{container}... "
     on roles(fetch(:stage)) do
       execute("sudo systemctl stop #{container}.service")
     end
+    puts "done"
   end
 
   desc "Kill containers for an app"
   task :kill do
     container = fetch(:container)
-
+    print "Killing #{container}... "
     on roles(fetch(:stage)) do
       execute("sudo systemctl kill #{container}.service")
     end
+    puts "done"
   end
 end

@@ -36,12 +36,14 @@ namespace :deploy do
     from = "blue"
     from = "green" if to == "blue"
 
+    print "Swiching to #{to} containers... "
+
     on roles(:all) do
       execute("sudo mkdir -pv /etc/nginx/switch || true")
       execute("sudo touch     /etc/nginx/switch/#{to}")
       execute("sudo rm        /etc/nginx/switch/#{from} || true")
     end
 
-    puts "Switched to #{to}"
+    puts "done"
   end
 end

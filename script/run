@@ -14,5 +14,5 @@ docker run \
   -it \
   --name capistrano \
   -v /home/core/share/capistrano:/capistrano \
-  quay.io/spesnova/capistrano \
+  quay.io/spesnova/docker-example-capistrano \
   $@

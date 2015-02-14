@@ -39,7 +39,7 @@ set :ssh_options, {
 #
 role "cap",                ["172.17.8.101"]
 role "build",              ["172.17.8.101"]
-role "db",                 ["172.17.8.101"]
+role "postgres",           ["172.17.8.101"]
 role "prometheus",         ["172.17.8.101"]
 role "container-exporter", ["172.17.8.101"]
 role "nginx",              ["172.17.8.102", "172.17.8.103"]

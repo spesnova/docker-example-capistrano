@@ -3,9 +3,9 @@ require "ruby-progressbar"
 desc "Pull docker image for an app"
 task :pull do
   image = fetch(:image)
-  output = "Pulling latest #{image}..."
+  output = "Pulling #{image}..."
 
-  download_bar_thread = Thread.new do
+  progressbar_thread = Thread.new do
     options = {
       title: output,
       total: nil,
@@ -21,15 +21,15 @@ task :pull do
     end
   end
 
-  pull_thread = Thread.new do
+  execution_thread = Thread.new do
     on roles(:all) do
       execute("docker pull #{image}")
     end
-    download_bar_thread.kill
+    progressbar_thread.kill
   end
 
-  download_bar_thread.join
-  pull_thread.join
+  progressbar_thread.join
+  execution_thread.join
 
   puts "#{output} done"
 end

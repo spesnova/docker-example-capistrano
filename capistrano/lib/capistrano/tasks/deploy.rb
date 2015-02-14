@@ -22,11 +22,6 @@ task :deploy do
 end
 
 namespace :deploy do
-  desc "Show current active container color for rails"
-  task :check do
-    puts "Current Color: #{current_color}"
-  end
-
   desc "Switch to blue/green containers"
   task :switch, :to do |t, args|
     to = ""

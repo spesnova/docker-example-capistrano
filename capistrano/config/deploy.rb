@@ -45,6 +45,7 @@ role "container-exporter", ["172.17.8.101"]
 role "nginx",              ["172.17.8.102", "172.17.8.103"]
 role "rails-blue",         ["172.17.8.102", "172.17.8.103"]
 role "rails-green",        ["172.17.8.102", "172.17.8.103"]
+role "cadvisor",           ["172.17.8.101", "172.17.8.102", "172.17.8.103"]
 
 #
 # Docker Remote API

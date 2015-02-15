@@ -1,0 +1,15 @@
+name: cadvisor
+description: cAdvisor
+repo: github.com/google/cadvisor
+image: google/cadvisor:latest
+command:
+ports:
+  - 8080:8080
+volumes:
+  - /etc/nginx/switch:/etc/nginx/switch:ro
+  - /:/rootfs:ro
+  - /var/run:/var/run:rw
+  - /sys:/sys:ro
+  - /var/lib/docker/:/var/lib/docker:ro
+net:
+environment:

@@ -18,11 +18,12 @@ task :logs do
   puts "Type CTRL+C to stop streaming"
 
   filter = ""
-  filter = "filter:#{ENV['FILTER']}" unless ENV['FILTER'].nil? || ENV['FILTER'].empty?
+  filter = fetch(:container)   unless fetch(:stage) == :default
+  filter = ENV['FILTER']       unless ENV['FILTER'].nil? || ENV['FILTER'].empty?
+  filter = "filter:#{filter}" unless filter == ""
 
   begin
     threads = []
-
     roles(:all).each do |m|
       threads << Thread.new do
         puts_log_stream(["http://#{m.hostname}:8000/logs", filter].join("/"))

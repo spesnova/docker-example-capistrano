@@ -23,7 +23,8 @@ task :ps do
     end
   end
 
-  rows.sort_by!{|row| row[2]} if ENV["SORT_BY"] == "name"
+  rows.sort_by!{|row| row[2]}
+  rows.sort_by!{|row| row[0]} if ENV["SORT_BY"] == "host"
   rows.unshift(["MACHINE", "ID", "NAME", "STATUS", "PORTS", "COMMAND"])
   rows.each do |r|
     puts r[0].ljust(15) + r[1].ljust(10) + r[2].ljust(30) + r[3].ljust(25) + r[4].ljust(25) + r[5]

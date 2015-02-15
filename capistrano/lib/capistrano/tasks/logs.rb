@@ -18,7 +18,7 @@ task :logs do
   puts "Type CTRL+C to stop streaming"
 
   filter = ""
-  filter = fetch(:container)   unless fetch(:stage) == :default
+  filter = fetch(:container)   unless fetch(:stage) == "hidden"
   filter = ENV['FILTER']       unless ENV['FILTER'].nil? || ENV['FILTER'].empty?
   filter = "filter:#{filter}" unless filter == ""
 

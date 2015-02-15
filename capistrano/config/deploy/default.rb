@@ -1,1 +1,0 @@
-set :stage, :default

@@ -7,12 +7,10 @@
 
 set -e
 
-docker kill capistrano > /dev/null 2>&1 || true
-docker rm   capistrano > /dev/null 2>&1 || true
 docker run \
   --rm \
   -it \
-  --name capistrano \
+  --name capistrano.`date +%s` \
   -v /home/core/share/capistrano:/capistrano \
   quay.io/spesnova/docker-example-capistrano \
   $@

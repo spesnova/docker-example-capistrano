@@ -1,0 +1,10 @@
+name: logspout
+description: Logspout, a log router for Docker container
+repo: github.com/gliderlabs/logspout
+image: gliderlabs/logspout:latest
+command:
+ports:
+  - 8000:8000
+volumes:
+  - /var/run/docker.sock:/tmp/docker.sock
+environment:

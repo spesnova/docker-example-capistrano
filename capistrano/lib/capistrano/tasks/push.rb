@@ -20,9 +20,8 @@ task :push do
   end
 
   execution_thread = Thread.new do
-    on roles(:all) do
-      execute("docker pull #{image}")
-    execute("docker push #{image}")
+    on roles(:build) do
+      execute("docker push #{image}")
     end
     progressbar_thread.kill
   end

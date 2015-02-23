@@ -35,6 +35,13 @@ set :ssh_options, {
 }
 
 #
+# Servers
+#
+server "172.17.8.101"
+server "172.17.8.102"
+server "172.17.8.103"
+
+#
 # Roles
 #
 role "cap",                ["172.17.8.101"]

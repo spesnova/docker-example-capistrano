@@ -23,7 +23,11 @@ task :pull do
 
   execution_thread = Thread.new do
     on roles(:all) do
-      execute("docker pull #{image}")
+      unless test("docker pull #{image}")
+        progressbar_thread.kill
+        puts ""
+        abort "Failed to pull"
+      end
     end
     progressbar_thread.kill
   end

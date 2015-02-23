@@ -21,7 +21,11 @@ task :push do
 
   execution_thread = Thread.new do
     on roles(:build) do
-      execute("docker push #{image}")
+      unless test("docker push #{image}")
+        progressbar_thread.kill
+        puts ""
+        abort "Failed to push"
+      end
     end
     progressbar_thread.kill
   end

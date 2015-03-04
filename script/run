@@ -11,6 +11,7 @@ docker run \
   --rm \
   -it \
   --name capistrano.`date +%s` \
-  -v /home/core/share/capistrano:/capistrano \
+  -v /home/core/docker-example-capistrano/capistrano:/capistrano \
+  --net=host \
   quay.io/spesnova/docker-example-capistrano \
   $@

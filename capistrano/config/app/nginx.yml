@@ -8,5 +8,4 @@ volumes:
   - /etc/nginx/switch:/etc/nginx/switch:ro
 net: host
 environment:
-  - SERVERNAME=hello.com
-  - HOST=hello.com
+  - SERVER_NAME=hello.com

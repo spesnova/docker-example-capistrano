@@ -1,6 +1,6 @@
 desc "Run one-off container for an app"
 task :run do
-  if fetch(:stage) == "hidden"
+  if fetch(:stage) == "default"
     abort "Please specify app to run. Example: $ cap rails-blue run"
   end
 

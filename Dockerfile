@@ -4,7 +4,9 @@ MAINTAINER Seigo Uchida <spesnova@gmail.com> (@spesnova)
 WORKDIR /capistrano
 
 RUN apt-get update && \
-    apt-get install ruby -y && \
+    apt-get install \
+      ssh \
+      ruby -y && \
     rm -rf /var/lib/apt/lists/* && \
     gem install bundler --no-ri --no-rdoc
 

@@ -10,4 +10,4 @@ Dir.glob('lib/capistrano/tasks/*.rb').each { |r| import r }
 #
 # Load default stage to skip specifing stage every time
 #
-invoke "hidden"
+invoke "default"
